@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Free Word Counter - Words, Characters & Reading Time</title>
+
+    <meta name="description"
+          content="Use this free word counter to count words, characters, sentences and estimated reading time instantly.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+          href="https://haqnawazrehan11.github.io/Seo-Tools/tools/word-counter.html">
+
+    <link rel="stylesheet"
+          href="../style.css">
+
+    <style>
+        .tool-page {
+            padding: 65px 0;
+        }
+
+        .tool-header {
+            max-width: 800px;
+            margin: 0 auto 35px;
+            text-align: center;
+        }
+
+        .tool-header h1 {
+            margin-bottom: 15px;
+            color: #101828;
+            font-size: 42px;
+        }
+
+        .tool-header p {
+            color: #667085;
+            font-size: 17px;
+        }
+
+        .counter-box {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            background: #ffffff;
+            border: 1px solid #e4e7ec;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+        }
+
+        .text-input {
+            width: 100%;
+            min-height: 280px;
+            padding: 18px;
+            border: 1px solid #d0d5dd;
+            border-radius: 10px;
+            outline: none;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .text-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .clear-button {
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 8px;
+            background: #eef2f6;
+            color: #344054;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .clear-button:hover {
+            background: #e4e7ec;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns:
+                repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .stat {
+            padding: 20px 15px;
+            background: #f8faff;
+            border: 1px solid #e4e7ec;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            margin-bottom: 5px;
+            color: #2563eb;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .stat-label {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        .info-section {
+            max-width: 900px;
+            margin: 45px auto 0;
+        }
+
+        .info-section h2 {
+            margin-bottom: 15px;
+            color: #101828;
+        }
+
+        .info-section p {
+            margin-bottom: 15px;
+            color: #475467;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 700px) {
+
+            .tool-page {
+                padding: 45px 0;
+            }
+
+            .tool-header h1 {
+                font-size: 32px;
+            }
+
+            .counter-box {
+                padding: 20px;
+            }
+
+            .stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+
+        <a href="../index.html"
+           class="logo">
+            SEO Tools
+        </a>
+
+        <nav>
+            <a href="../index.html#tools">
+                Tools
+            </a>
+
+            <a href="../index.html#about">
+                About
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="tool-page">
+
+    <div class="container">
+
+        <div class="tool-header">
+
+            <h1>Free Word Counter</h1>
+
+            <p>
+                Count words, characters, sentences and
+                estimated reading time instantly.
+            </p>
+
+        </div>
+
+
+        <div class="counter-box">
+
+            <textarea
+                id="textInput"
+                class="text-input"
+                placeholder="Write or paste your text here..."></textarea>
+
+
+            <div class="button-row">
+
+                <button
+                    id="clearButton"
+                    class="clear-button"
+                    type="button">
+                    Clear Text
+                </button>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span
+                        id="wordCount"
+                        class="stat-number">
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Words
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        id="characterCount"
+                        class="stat-number">
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Characters
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        id="sentenceCount"
+                        class="stat-number">
+                        0
+                    </span>
+
+                    <span class="stat-label">
+                        Sentences
+                    </span>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span
+                        id="readingTime"
+                        class="stat-number">
+                        0 min
+                    </span>
+
+                    <span class="stat-label">
+                        Reading Time
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-section">
+
+            <h2>What Does a Word Counter Do?</h2>
+
+            <p>
+                A word counter helps you quickly measure the
+                length of your content. It can be useful when
+                writing blog posts, articles, essays, product
+                descriptions, social media posts and other
+                online content.
+            </p>
+
+            <p>
+                This tool counts words and characters directly
+                in your browser. No account or complicated
+                setup is required.
+            </p>
+
+            <h2>How to Use This Word Counter</h2>
+
+            <p>
+                Paste or type your content into the text box.
+                The tool automatically updates the word,
+                character and sentence counts as you type.
+                It also provides an estimated reading time.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            © 2026 SEO Tools. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+const textInput =
+    document.getElementById("textInput");
+
+const wordCount =
+    document.getElementById("wordCount");
+
+const characterCount =
+    document.getElementById("characterCount");
+
+const sentenceCount =
+    document.getElementById("sentenceCount");
+
+const readingTime =
+    document.getElementById("readingTime");
+
+const clearButton =
+    document.getElementById("clearButton");
+
+
+function updateCounter() {
+
+    const text =
+        textInput.value.trim();
+
+
+    const words =
+        text.length === 0
+            ? []
+            : text.split(/\s+/);
+
+
+    const wordTotal =
+        words.length;
+
+
+    const characterTotal =
+        textInput.value.length;
+
+
+    const sentenceTotal =
+        text.length === 0
+            ? 0
+            : text
+                .split(/[.!?]+/)
+                .filter(sentence =>
+                    sentence.trim().length > 0
+                )
+                .length;
+
+
+    const minutes =
+        wordTotal === 0
+            ? 0
+            : Math.ceil(wordTotal / 200);
+
+
+    wordCount.textContent =
+        wordTotal.toLocaleString();
+
+
+    characterCount.textContent =
+        characterTotal.toLocaleString();
+
+
+    sentenceCount.textContent =
+        sentenceTotal.toLocaleString();
+
+
+    readingTime.textContent =
+        minutes + " min";
+}
+
+
+textInput.addEventListener(
+    "input",
+    updateCounter
+);
+
+
+clearButton.addEventListener(
+    "click",
+    function() {
+
+        textInput.value = "";
+
+        updateCounter();
+
+        textInput.focus();
+    }
+);
+
+</script>
+
+</body>
+</html>
