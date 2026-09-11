@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Keyword Density Checker - Free SEO Tool</title>
+  <meta name="description" content="Free keyword density checker to analyze keyword frequency, density percentage, word count, and keyword usage in your content.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .tool-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .tool-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 250px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: vertical;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #16803c;
+      color: white;
+      border: none;
+      padding: 13px 22px;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .results {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .result-card {
+      background: #f5f7f9;
+      padding: 18px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .result-card strong {
+      display: block;
+      font-size: 25px;
+      margin-top: 8px;
+    }
+
+    .keyword-result {
+      margin-top: 20px;
+      padding: 18px;
+      background: #f5f7f9;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .error {
+      color: #c62828;
+      margin-top: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="tool-container">
+
+  <a class="back-link" href="../index.html">← Back to SEO Tools</a>
+
+  <div class="tool-box">
+
+    <h1>Keyword Density Checker</h1>
+
+    <p>
+      Check keyword frequency and keyword density percentage in your content
+      with this free SEO tool.
+    </p>
+
+    <label for="keyword"><strong>Enter Your Keyword</strong></label>
+
+    <input
+      type="text"
+      id="keyword"
+      placeholder="Example: keyword density"
+    >
+
+    <label for="content"><strong>Paste Your Content</strong></label>
+
+    <textarea
+      id="content"
+      placeholder="Paste your article or content here..."
+    ></textarea>
+
+    <button onclick="checkDensity()">Check Keyword Density</button>
+
+    <div id="error" class="error"></div>
+
+    <div class="results">
+
+      <div class="result-card">
+        Total Words
+        <strong id="wordCount">0</strong>
+      </div>
+
+      <div class="result-card">
+        Keyword Count
+        <strong id="keywordCount">0</strong>
+      </div>
+
+      <div class="result-card">
+        Keyword Density
+        <strong id="density">0%</strong>
+      </div>
+
+    </div>
+
+    <div id="keywordResult" class="keyword-result"></div>
+
+  </div>
+
+</div>
+
+<script>
+function checkDensity() {
+
+  const keyword = document.getElementById("keyword").value.trim();
+  const content = document.getElementById("content").value.trim();
+
+  const error = document.getElementById("error");
+  const keywordResult = document.getElementById("keywordResult");
+
+  error.textContent = "";
+  keywordResult.style.display = "none";
+
+  if (!keyword) {
+    error.textContent = "Please enter a keyword.";
+    return;
+  }
+
+  if (!content) {
+    error.textContent = "Please paste some content.";
+    return;
+  }
+
+  // Count words
+  const words = content.match(/\b[\w'-]+\b/g) || [];
+  const totalWords = words.length;
+
+  // Escape special regex characters
+  const escapedKeyword = keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+  // Count exact keyword phrase, case-insensitive
+  const regex = new RegExp(
+    "(?<![\\w-])" + escapedKeyword + "(?![\\w-])",
+    "gi"
+  );
+
+  const matches = content.match(regex) || [];
+  const keywordCount = matches.length;
+
+  // Calculate density
+  const density =
+    totalWords > 0
+      ? ((keywordCount / totalWords) * 100).toFixed(2)
+      : 0;
+
+  document.getElementById("wordCount").textContent = totalWords;
+  document.getElementById("keywordCount").textContent = keywordCount;
+  document.getElementById("density").textContent = density + "%";
+
+  let advice = "";
+
+  if (keywordCount === 0) {
+    advice = "The keyword was not found in your content.";
+  } else if (density < 0.5) {
+    advice = "Your keyword density is relatively low.";
+  } else if (density <= 2.5) {
+    advice = "Your keyword usage looks natural. Focus on readability and search intent.";
+  } else {
+    advice = "Your keyword density is relatively high. Avoid unnecessary repetition.";
+  }
+
+  keywordResult.innerHTML =
+    "<strong>Analysis:</strong><br>" +
+    "The keyword <strong>" +
+    escapeHTML(keyword) +
+    "</strong> appears " +
+    keywordCount +
+    " time(s) in " +
+    totalWords +
+    " words.<br><br>" +
+    advice;
+
+  keywordResult.style.display = "block";
+}
+
+function escapeHTML(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+</script>
+
+</body>
+</html>
