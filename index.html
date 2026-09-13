@@ -2,174 +2,778 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Free SEO Tools - Online SEO Checker Tools</title>
 
-    <title>Free SEO Tools - Keyword, Meta Tag & Content Tools</title>
+    <meta name="description" content="Use our free online SEO tools to check keyword density, analyze content, and improve your website's search engine optimization.">
 
-    <meta name="description"
-          content="Free SEO tools for keyword analysis, meta tags, word counting, slug generation and website optimization.">
+    <meta name="keywords" content="SEO tools, free SEO tools, keyword density checker, online SEO tools, SEO checker">
 
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical"
-          href="https://haqnawazrehan11.github.io/Seo-Tools/">
+    <link rel="canonical" href="https://haqnawazrehan11.github.io/Seo-Tools/">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 0 auto 30px;
+            color: #5b6472;
+            font-size: 18px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #2563eb;
+            color: #ffffff;
+            border-radius: 7px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        /* Tools */
+        .tools-section {
+            padding: 70px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tool-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .tool-icon {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 10px;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .tool-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .tool-card p {
+            color: #6b7280;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tool-button {
+            display: inline-block;
+            padding: 10px 17px;
+            background: #2563eb;
+            color: #ffffff;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .tool-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* About */
+        .about-section {
+            padding: 70px 0;
+            background: #ffffff;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 34px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .about-content p {
+            color: #5b6472;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Features */
+        .features-section {
+            padding: 70px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .feature p {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: #ffffff;
+            padding: 45px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .footer-column p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 9px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .copyright {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .tools-grid,
+            .features-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2,
+            .about-content h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container">
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
 
-        <a href="index.html" class="logo">
-            SEO Tools
-        </a>
-
-        <nav>
-            <a href="#tools">Tools</a>
-            <a href="#about">About</a>
-        </nav>
-
-    </div>
-</header>
-
-<main>
-
-<section class="hero">
-    <div class="container">
-
-        <h1>Free SEO Tools</h1>
-
-        <p>
-            Simple and useful SEO tools for keywords,
-            content optimization, meta tags and website analysis.
-        </p>
-
-        <a href="#tools" class="button">
-            Explore SEO Tools
-        </a>
-
-    </div>
-</section>
-
-<section id="tools" class="tools-section">
-
-    <div class="container">
-
-        <h2>SEO Tools</h2>
-
-        <div class="tools-grid">
-
-            <a href="tools/meta-tag-generator.html"
-               class="tool-card">
-
-                <h3>Meta Tag Generator</h3>
-
-                <p>
-                    Create SEO-friendly title and
-                    meta description tags.
-                </p>
-
+            <a href="index.html" class="logo">
+                SEO Tools
             </a>
 
-            <a href="tools/keyword-density.html"
-               class="tool-card">
+            <ul class="nav-links">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
 
-                <h3>Keyword Density Checker</h3>
+                <li>
+                    <a href="#tools">SEO Tools</a>
+                </li>
 
-                <p>
-                    Check keyword frequency and
-                    content keyword density.
-                </p>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+            </ul>
 
-            </a>
+        </div>
+    </header>
 
-            <a href="tools/word-counter.html"
-               class="tool-card">
 
-                <h3>Word Counter</h3>
+    <!-- Hero Section -->
+    <section class="hero">
 
-                <p>
-                    Count words, characters and
-                    sentences in your content.
-                </p>
+        <div class="container">
 
-            </a>
+            <h1>
+                Free <span>SEO Tools</span> Online
+            </h1>
 
-            <a href="tools/slug-generator.html"
-               class="tool-card">
+            <p>
+                Use simple and free online SEO tools to analyze your content,
+                check keyword usage, and improve your website's search engine
+                optimization.
+            </p>
 
-                <h3>Slug Generator</h3>
-
-                <p>
-                    Generate clean and SEO-friendly
-                    URL slugs.
-                </p>
-
-            </a>
-
-            <a href="tools/schema-generator.html"
-               class="tool-card">
-
-                <h3>Schema Generator</h3>
-
-                <p>
-                    Generate structured data markup
-                    for your webpages.
-                </p>
-
-            </a>
-
-            <a href="tools/heading-analyzer.html"
-               class="tool-card">
-
-                <h3>Heading Analyzer</h3>
-
-                <p>
-                    Analyze H1, H2 and H3 headings
-                    on your content.
-                </p>
-
+            <a href="#tools" class="hero-button">
+                Explore SEO Tools
             </a>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
 
-<section id="about" class="about">
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
 
-    <div class="container">
+        <div class="container">
 
-        <h2>About These SEO Tools</h2>
+            <div class="section-heading">
 
-        <p>
-            These free tools are designed to help website
-            owners, bloggers and content creators improve
-            their on-page SEO and content quality.
-        </p>
+                <h2>Our Free SEO Tools</h2>
 
-    </div>
+                <p>
+                    Choose a tool below to analyze and improve your website content.
+                </p>
 
-</section>
+            </div>
 
-</main>
 
-<footer>
+            <div class="tools-grid">
 
-    <div class="container">
+                <!-- Keyword Density Checker -->
+                <div class="tool-card">
 
-        <p>
-            © 2026 SEO Tools. All rights reserved.
-        </p>
+                    <div class="tool-icon">
+                        🔍
+                    </div>
 
-    </div>
+                    <h3>
+                        Keyword Density Checker
+                    </h3>
 
-</footer>
+                    <p>
+                        Check the keyword density of your content and find out
+                        how frequently specific keywords appear in your text.
+                    </p>
+
+                    <a
+                        href="tools/keyword-density-checker.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+
+                <!-- Word Counter -->
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Word Counter
+                    </h3>
+
+                    <p>
+                        Count words and characters in your content quickly
+                        and easily with our online word counter.
+                    </p>
+
+                    <a
+                        href="tools/word-counter.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+
+                <!-- Character Counter -->
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        🔢
+                    </div>
+
+                    <h3>
+                        Character Counter
+                    </h3>
+
+                    <p>
+                        Count characters in your text to help you create
+                        content that fits your required limits.
+                    </p>
+
+                    <a
+                        href="tools/character-counter.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+
+                <!-- Text Case Converter -->
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        🔤
+                    </div>
+
+                    <h3>
+                        Text Case Converter
+                    </h3>
+
+                    <p>
+                        Convert your text into uppercase, lowercase, title case,
+                        and other useful text formats.
+                    </p>
+
+                    <a
+                        href="tools/text-case-converter.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+
+                <!-- Sentence Counter -->
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        📄
+                    </div>
+
+                    <h3>
+                        Sentence Counter
+                    </h3>
+
+                    <p>
+                        Quickly count sentences in your content and analyze
+                        the overall structure of your text.
+                    </p>
+
+                    <a
+                        href="tools/sentence-counter.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+
+                <!-- Reading Time Calculator -->
+                <div class="tool-card">
+
+                    <div class="tool-icon">
+                        ⏱️
+                    </div>
+
+                    <h3>
+                        Reading Time Calculator
+                    </h3>
+
+                    <p>
+                        Estimate how long it takes readers to read your article,
+                        blog post, or other written content.
+                    </p>
+
+                    <a
+                        href="tools/reading-time-calculator.html"
+                        class="tool-button">
+                        Use Tool
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <div class="container">
+
+            <div class="about-content">
+
+                <h2>
+                    About Our SEO Tools
+                </h2>
+
+                <p>
+                    Our collection of free SEO tools is designed to make
+                    content analysis simple and accessible. Whether you are
+                    a blogger, content writer, website owner, or SEO
+                    professional, these tools can help you understand and
+                    improve your content.
+                </p>
+
+                <p>
+                    Use our online tools to analyze keywords, count words,
+                    check characters, and perform other useful content
+                    optimization tasks without complicated software.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="features-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Why Use Our Tools?
+                </h2>
+
+                <p>
+                    Simple tools designed for quick and convenient content analysis.
+                </p>
+
+            </div>
+
+
+            <div class="features-grid">
+
+                <div class="feature">
+
+                    <h3>
+                        Free to Use
+                    </h3>
+
+                    <p>
+                        Access useful SEO and content analysis tools without
+                        paying for expensive software.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <h3>
+                        Easy to Use
+                    </h3>
+
+                    <p>
+                        Our tools have simple interfaces that make content
+                        analysis quick and straightforward.
+                    </p>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <h3>
+                        Fast Results
+                    </h3>
+
+                    <p>
+                        Analyze your content and get useful results quickly
+                        without unnecessary steps.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-column">
+
+                    <h3>
+                        SEO Tools
+                    </h3>
+
+                    <p>
+                        Free online SEO and content analysis tools to help
+                        you create and optimize better content.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Tools
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="tools/keyword-density-checker.html">
+                                Keyword Density Checker
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tools/word-counter.html">
+                                Word Counter
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="tools/character-counter.html">
+                                Character Counter
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Quick Links
+                    </h3>
+
+                    <ul class="footer-links">
+
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#tools">
+                                SEO Tools
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about">
+                                About
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright">
+
+                © 2026 SEO Tools. All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
